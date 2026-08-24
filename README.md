@@ -20,4 +20,5 @@
 纯背诵模式。
 
 这两种模式都可以选，自由度非常之高。
+
 <img width="469" height="172" alt="pte-mode" src="https://github.com/user-attachments/assets/5a4b927b-d67b-4a9f-a426-24f5764ee2f6" />
