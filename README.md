@@ -7,7 +7,9 @@
 下图是它的一个界面的图。
 <img width="1085" height="725" alt="pte-writingemail" src="https://github.com/user-attachments/assets/f6284509-472c-473b-b2d7-10154f1503ec" />
 这边整体的设计思路，主要是根据作者经常犯的错来设计的。作者经常会因为粗心大意漏写东西，比如漏掉一些介词，或者 the、a、and 之类的词。所以这里加了一个功能（具体看下图）：类似于你输入的时候觉得自己写得一点问题都没有，但实际上漏了不少重要的东西，它能帮你直接比对出来。
+
 <img width="280" height="693" alt="pte-we-typo" src="https://github.com/user-attachments/assets/c140396b-9efe-45c1-b611-62ea31774fef" />
+
 另外，本着方便使用、减少重复劳动的原则：
 
 1. 当你把自己的例文粘贴上去后，系统是支持保存的，不用每次练习都重新粘贴一遍例文
