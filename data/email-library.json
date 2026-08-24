@@ -1,0 +1,98 @@
+{
+  "version": 1,
+  "sourceFile": "Writing Email_Cleaned.docx",
+  "entryCount": 13,
+  "entries": [
+    {
+      "id": "email-01",
+      "title": "Email 01",
+      "notes": "",
+      "promptImage": "data/images/email-01.png",
+      "sampleText": "Dear Restaurant Manager,\nI am writing to inquire about a bag I believe I left at your restaurant yesterday evening. I dined at your establishment around 7:30 PM with three of my friends. We were seated at a round table near the large window overlooking the main street.\nThe missing item is an orange plush bag shaped like a fox's head. Inside the bag, there are a few important personal items, including a lipstick, a bottle of essential oil, a personal computer, and my apartment keys.\nIf your cleaning staff finds it, please get in touch with me immediately at 666-6666 or reply to this email. I would greatly appreciate your assistance.\nYours sincerely,\nEmily Brown"
+    },
+    {
+      "id": "email-02",
+      "title": "Email 02",
+      "notes": "",
+      "promptImage": "data/images/email-02.png",
+      "sampleText": "Dear Dani,\nI am writing to formally request a two-week vacation, starting from Monday, October 10th to Friday, October 21st. I will return to the office on Monday, October 24th.\nThe primary reason for this leave is to attend my sister's wedding overseas and spend some quality time with my extended family. During my absence, my colleague, Frank Smith, has kindly agreed to cover my daily responsibilities and monitor my inbox. Should any critical emergencies arise, you can reach me directly on my personal mobile phone at 555-0123.\nThank you for your time and understanding.\nYours sincerely,\nEmily Brown"
+    },
+    {
+      "id": "email-03",
+      "title": "Email 03",
+      "notes": "",
+      "promptImage": "data/images/email-03.png",
+      "sampleText": "Hi Jim,\nHope you are doing well. I am so sorry, but I won't be able to help you move furniture this weekend as we planned.\nUnfortunately, my boss just asked me to work overtime to finish a critical programming task. Furthermore, my car is currently in the repair shop, so I have no transport to get to your place. Also, my parents are unexpectedly visiting me this Sunday, so I need to be at home to host them.\nI feel terrible for letting you down at the last minute. Let me treat you to dinner next week to make up for it!\nBest,\nEmily Brown"
+    },
+    {
+      "id": "email-04",
+      "title": "Email 04",
+      "notes": "",
+      "promptImage": "data/images/email-04.png",
+      "sampleText": "Hi Jim,\nThank you so much for the invitation to help you move your furniture this weekend. I am truly sorry, but I won't be able to assist you this time. Unfortunately, I have been asked to work overtime to finish a critical programming project. Additionally, my car is currently at the repair shop, leaving me with no transportation. Moreover, my parents are visiting me from out of town, so I have family responsibilities to take care of.\nTo make it up to you, I would love to come over next Wednesday evening to help you unpack boxes and organize your new place.\nBest wishes,\nEmily Brown"
+    },
+    {
+      "id": "email-05",
+      "title": "Email 05",
+      "notes": "",
+      "promptImage": "data/images/email-05.png",
+      "sampleText": "Dear Ms. Susan,\nThank you so much for the kind invitation to go out for a movie this weekend. I truly appreciate the thoughtful gesture.\nI am sincerely sorry to inform you that I will not be able to attend. Unfortunately, I have an urgent deadline for my academic proposal regarding AI decision-making, and I must dedicate the entire weekend to completing it.\nCould we perhaps reschedule our movie outing for next Saturday afternoon? I will be completely free by then.\nYours sincerely,\nSarah"
+    },
+    {
+      "id": "email-06",
+      "title": "Email 06",
+      "notes": "",
+      "promptImage": "data/images/email-06.png",
+      "sampleText": "Dear Property Manager,\nI am writing to express my serious safety concerns regarding the poor lighting in our apartment building. As a resident on the second floor with no elevator access, I must use the stairs daily. Currently, there is only one extremely dim light bulb at the main entrance, and the stairwell is completely dark. To prevent accidents, I strongly recommend installing more lights along the staircase. Furthermore, please upgrade the entrance area with brighter lights to ensure proper visibility. Additionally, implementing motion-sensing lighting would be an excellent, energy-efficient solution to illuminate the hallways only when necessary.\nI look forward to your prompt action on this matter.\nYours sincerely,\nSarah"
+    },
+    {
+      "id": "email-07",
+      "title": "Email 07",
+      "notes": "",
+      "promptImage": "data/images/email-07.png",
+      "sampleText": "Dear Marvin,\nI am writing to formally report two ongoing issues in my apartment that require your immediate attention.\nFirstly, the tenant in the apartment directly above mine has been excessively noisy late at night, making it impossible for me to sleep. Secondly, the hot water system is malfunctioning again. As this is not the first time it has broken down, it is extremely frustrating because I cannot take a warm shower before work.\nTo resolve these problems, I kindly request that you speak with the upstairs neighbor regarding the building's noise policy. Additionally, please send a qualified plumber to repair the water heater as soon as possible.\nI look forward to your prompt response.\nYours sincerely,\nSarah"
+    },
+    {
+      "id": "email-08",
+      "title": "Email 08",
+      "notes": "",
+      "promptImage": "data/images/email-08.png",
+      "sampleText": "Dear Mrs. Singh,\nI am writing to provide some suggestions regarding the upcoming sports club party.\nFirstly, for the music, I recommend hiring a local DJ to play an upbeat mix of pop and electronic tracks to keep the energy levels high. Secondly, regarding the food, setting up a casual buffet with a variety of healthy snacks, sandwiches, and vegetarian options would allow members to mingle easily. Lastly, to ensure everyone has a great time, we could organize a few interactive games, such as a friendly table tennis tournament or a sports trivia competition.\nI hope you find these recommendations helpful for the event.\nYours sincerely,\nSarah"
+    },
+    {
+      "id": "email-09",
+      "title": "Email 09",
+      "notes": "",
+      "promptImage": "data/images/email-09.png",
+      "sampleText": "Dear Mrs. Smith,\nI am writing to provide some practical suggestions regarding our company's new energy reduction initiative.\nFirstly, I recommend implementing a strict policy for turning off the lights in all meeting rooms and break areas when they are not in active use. Secondly, we should encourage all employees to completely shut down their computers and monitors at the end of the workday, rather than leaving them in standby mode. Lastly, regarding heating and air-conditioning, I suggest adjusting the office thermostat by a few degrees and ensuring that windows remain closed while the HVAC system is running.\nI believe these simple steps will significantly reduce our utility costs.\nYours sincerely,\nSarah"
+    },
+    {
+      "id": "email-10",
+      "title": "Email 10",
+      "notes": "",
+      "promptImage": "data/images/email-10.png",
+      "sampleText": "Hi John,\nWelcome to the neighborhood! I am writing to share some helpful building guidelines that should resolve a few recent issues and help you settle in smoothly.\nFirstly, regarding the noise, please be aware that our building has strict quiet hours after 10:00 PM. Keeping the TV volume down at night ensures everyone can rest. Secondly, for parking, please make sure to park only in your assigned spot, number 12, to avoid blocking other residents' vehicles. Lastly, concerning garbage disposal, all trash bags must be tied securely and placed in the large green bins located in the basement.\nIf you have any questions or need further assistance, please feel free to ask.\nBest regards,\nSarah"
+    },
+    {
+      "id": "email-11",
+      "title": "Email 11",
+      "notes": "",
+      "promptImage": "data/images/email-11.png",
+      "sampleText": "Hi Jim,\nHope you are doing well. I am writing to ask for some basic information regarding my upcoming presentation at your company. As scheduled, I will be presenting my report on human and AI decision-making in financial markets next Friday at 10:00 AM.\nSince I am unfamiliar with the venue, could you please confirm the availability of technology equipment? Specifically, I need to know if the meeting room has a computer and a projector I can use. Additionally, could you tell me the estimated number of participants? This will help me prepare the correct amount of printed handouts.\nThanks for your help!\nBest,\nSarah"
+    },
+    {
+      "id": "email-12",
+      "title": "Email 12",
+      "notes": "",
+      "promptImage": "data/images/email-12.png",
+      "sampleText": "Dear Restaurant Manager,\nI am writing to inquire about making a large group reservation at Oscar's Kitchen. I would like to book a table for twenty people next Friday at 7:00 PM. I am contacting you directly because your online booking system only permits reservations for up to six guests.\nWe will be celebrating my best friend's 30th birthday. During the event, we plan to enjoy a formal sit-down dinner, exchange gifts, and cut a custom birthday cake. Furthermore, could you please let me know if there are any designated parking spaces available in your building for our attendees?\nI look forward to your prompt response.\nYours sincerely,\nSarah"
+    },
+    {
+      "id": "email-13",
+      "title": "Email 13",
+      "notes": "",
+      "promptImage": "data/images/email-13.png",
+      "sampleText": "Dear Parents,\nI am writing to warmly invite your children to celebrate my son Alex's eighth birthday next month! Firstly, the party will take place on Saturday, November 12th, from 2:00 PM to 5:00 PM at the Central Park Community Center's main hall. Secondly, regarding the food, we will serve a variety of delicious meals, including homemade pizzas, healthy snacks, and a large chocolate cake. Lastly, we have organized several exciting activities for the kids, such as an indoor treasure hunt, face painting, and a fun magic show.\nPlease let me know if your child has any specific food allergies.\nBest regards,\nSarah"
+    }
+  ]
+}

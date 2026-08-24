@@ -1,0 +1,18 @@
+# Original source document is kept locally and is not needed to run the app.
+Writing Email_Cleaned.docx
+
+# Python cache and local tooling output.
+__pycache__/
+*.py[cod]
+*.log
+tmp/
+
+# Local browser/export artifacts.
+exports/
+*.local.json
+
+# Operating-system and editor files.
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

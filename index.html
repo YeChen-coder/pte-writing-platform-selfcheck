@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PTE Core Writing Email Practice</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">PTE Core</p>
+        <h1>Writing Email 题库练习台</h1>
+        <p class="hero-copy">
+          13 篇题目和例文已经可以集中管理。你可以切题、编辑例文、上传或替换题图，再按单词逐个对比输入差异。
+        </p>
+      </div>
+      <div class="hero-actions">
+        <button id="newEntryButton" class="secondary-button" type="button">新增题目</button>
+        <button id="duplicateEntryButton" class="ghost-button" type="button">复制当前题</button>
+        <button id="deleteEntryButton" class="ghost-button" type="button">删除当前题</button>
+        <button id="exportLibraryButton" class="ghost-button" type="button">导出题库 JSON</button>
+        <button id="importLibraryButton" class="ghost-button" type="button">导入题库 JSON</button>
+        <button id="restoreSeedButton" class="primary-button" type="button">恢复文件版题库</button>
+      </div>
+    </header>
+
+    <input id="importLibraryInput" type="file" accept=".json,application/json" hidden>
+    <div id="statusBar" class="status-bar" aria-live="polite"></div>
+
+    <section class="workspace-grid">
+      <aside class="panel library-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="section-kicker">题库</p>
+            <h2>本地题目列表</h2>
+            <p id="libraryMeta" class="muted-copy">载入中…</p>
+          </div>
+        </div>
+
+        <div class="library-helper">
+          当前页面会先读取项目里的文件版题库，再把你的修改保存在这个浏览器本地。
+        </div>
+
+        <div id="entryList" class="entry-list"></div>
+      </aside>
+
+      <main class="panel practice-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="section-kicker">当前题目</p>
+            <h2 id="promptTitleDisplay">未命名题目</h2>
+            <p id="promptNotesDisplay" class="muted-copy">选择左侧题目后即可开始。</p>
+          </div>
+          <div class="current-entry-actions">
+            <div id="modeIndicator" class="mode-indicator">显示例文模式</div>
+            <button id="toggleEditorButton" class="secondary-button small-button" type="button">编辑当前例文</button>
+            <button id="clearAnswerButton" class="ghost-button small-button" type="button">清空本题输入</button>
+          </div>
+        </div>
+
+        <section class="editor-grid">
+          <label class="field">
+            <span>题目标题</span>
+            <input
+              id="promptTitleInput"
+              type="text"
+              maxlength="80"
+              placeholder="例如：Email 01"
+            >
+          </label>
+
+          <label class="field">
+            <span>题目备注</span>
+            <textarea
+              id="promptNotesInput"
+              rows="4"
+              placeholder="可选：记录题目要求、场景、字数提醒等。"
+            ></textarea>
+          </label>
+        </section>
+
+        <div class="field">
+          <span>题目图片</span>
+          <label class="upload-dropzone" id="imageDropzone" for="promptImageInput">
+            <strong>点击选择图片</strong>
+            <span>可替换当前题目的题图。若不替换，默认使用从 Word 导入的原始图片。</span>
+          </label>
+          <input id="promptImageInput" type="file" accept="image/*" hidden>
+          <div class="inline-actions">
+            <button id="removeImageButton" class="secondary-button small-button" type="button">移除当前题图</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <span>练习模式</span>
+          <div class="mode-grid">
+            <label class="mode-card">
+              <input type="radio" name="practiceMode" value="show" checked>
+              <strong>显示例文</strong>
+              <small>适合照着标准例文打一遍。</small>
+            </label>
+            <label class="mode-card">
+              <input type="radio" name="practiceMode" value="hide">
+              <strong>不显示例文</strong>
+              <small>适合默写和背诵检测。</small>
+            </label>
+          </div>
+        </div>
+
+        <div class="field compact-field compare-controls">
+          <label class="checkbox-row">
+            <input id="liveCompareToggle" type="checkbox" checked>
+            <span>输入时实时对比</span>
+          </label>
+          <button id="runCompareButton" class="secondary-button small-button" type="button">立即对比</button>
+        </div>
+
+        <div id="promptImageFrame" class="prompt-image-frame">
+          <img id="promptImage" alt="题目图片预览" hidden>
+          <div id="promptImageEmpty" class="empty-state">
+            <strong>当前题目还没有图片</strong>
+            <span>你可以继续保留空白，或者为这题重新上传题图。</span>
+          </div>
+        </div>
+
+        <section class="content-block">
+          <div class="block-heading">
+            <h3>例文预览</h3>
+            <span id="sampleVisibilityTag" class="tag">当前可见</span>
+          </div>
+          <div id="samplePreviewVisible" class="sample-preview"></div>
+          <div id="samplePreviewHidden" class="sample-hidden" hidden></div>
+        </section>
+
+        <section class="content-block">
+          <div class="block-heading">
+            <h3>你的输入</h3>
+            <span id="wordCountStats" class="tag subdued-tag">0 words</span>
+          </div>
+          <textarea
+            id="userAnswerInput"
+            class="answer-input"
+            spellcheck="false"
+            placeholder="在这里输入你当前这题的 email 内容。"
+          ></textarea>
+        </section>
+      </main>
+
+      <aside class="panel result-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="section-kicker">自动对比</p>
+            <h2>逐词差异</h2>
+          </div>
+        </div>
+
+        <div class="summary-grid">
+          <article class="summary-card">
+            <span>参考词数</span>
+            <strong id="expectedWordCount">0</strong>
+          </article>
+          <article class="summary-card">
+            <span>输入词数</span>
+            <strong id="actualWordCount">0</strong>
+          </article>
+          <article class="summary-card success-card">
+            <span>匹配词数</span>
+            <strong id="matchedWordCount">0</strong>
+          </article>
+          <article class="summary-card warning-card">
+            <span>替换/拼写</span>
+            <strong id="replacedWordCount">0</strong>
+          </article>
+          <article class="summary-card danger-card">
+            <span>漏写词数</span>
+            <strong id="missingWordCount">0</strong>
+          </article>
+          <article class="summary-card info-card">
+            <span>多写词数</span>
+            <strong id="extraWordCount">0</strong>
+          </article>
+        </div>
+
+        <div class="legend">
+          <span class="legend-chip equal-chip">匹配</span>
+          <span class="legend-chip replace-chip">替换/拼写</span>
+          <span class="legend-chip missing-chip">漏写</span>
+          <span class="legend-chip extra-chip">多写</span>
+        </div>
+
+        <div id="diffOutput" class="diff-output"></div>
+
+        <section class="content-block table-section">
+          <div class="block-heading">
+            <h3>差异清单</h3>
+            <span id="differenceCount" class="tag subdued-tag">0 项</span>
+          </div>
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>位置</th>
+                  <th>类型</th>
+                  <th>参考词</th>
+                  <th>你的词</th>
+                </tr>
+              </thead>
+              <tbody id="differenceTableBody">
+                <tr>
+                  <td colspan="4" class="table-empty">填入例文后就会生成对比结果。</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </aside>
+    </section>
+  </div>
+
+  <div id="editorModalBackdrop" class="modal-backdrop" hidden>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="editorModalTitle">
+      <div class="modal-header">
+        <div>
+          <p class="section-kicker">可编辑底稿</p>
+          <h2 id="editorModalTitle">例文编辑器</h2>
+          <p id="editorEntryLabel" class="muted-copy">当前题目</p>
+        </div>
+        <button id="closeEditorButton" class="ghost-button icon-button" type="button" aria-label="关闭">
+          ×
+        </button>
+      </div>
+
+      <label class="field modal-field">
+        <span>原例文</span>
+        <textarea
+          id="sampleTextInput"
+          class="sample-editor"
+          spellcheck="false"
+          placeholder="这里可以随时修改当前题目的标准例文。"
+        ></textarea>
+      </label>
+
+      <div class="modal-footer">
+        <p class="muted-copy">
+          当前题目的例文修改会自动保存在浏览器本地工作副本中。需要转成文件时，可在顶部导出题库 JSON。
+        </p>
+        <button id="saveSampleButton" class="primary-button" type="button">保存并关闭</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="data/email-library.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
