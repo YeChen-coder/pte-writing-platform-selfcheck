@@ -2,17 +2,37 @@
 
 ## 中文说明
 
-这是一个用于练习 PTE Core Writing Email 的本地网页平台。
+这个是给 PTE Core 的 Writing Email 准备用的。（注意一下，这里面是不包括那个例文的。界面上的那个例文，它1000%纯AI写的，只是告诉大家自己准备的例文往哪里粘而已。它不是一个用于背诵的东西。）
 
-主要功能：
+话先说在前面，虽然把这个做出来了，但作者觉得这东西真没有什么大用。因为在考场上一紧张很容易忘句子，而 Writing Email 忘不忘句子其实不重要，反正凑够字数就行；最重要的是保证不打错字、语法正确，至于范文好不好、跟不跟范文走，问题都不大。
 
-- 管理 13 篇 Writing Email 题目
-- 显示题目图片和可编辑例文
-- 支持“显示例文”和“不显示例文”两种练习模式
-- 按单词比较输入内容与参考例文
-- 检测匹配、替换/拼写错误、漏写和多写
-- 在浏览器本地保存题库修改和练习输入
-- 支持导入和导出题库 JSON
+所以作者单纯是觉得既然做了就先放这儿吧，但再次强调，作者觉得这个平台没什么用。不过也不好说，大家可能可以把它用在别的地方，就这样吧。如果有什么要定制化的东西，可以让自家的 Codex 或者 Claude Code 去改改咯。
+
+下图是它的一个界面的图。
+
+<img width="1085" height="725" alt="pte-writingemail" src="https://github.com/user-attachments/assets/f6284509-472c-473b-b2d7-10154f1503ec" />
+
+这边整体的设计思路，主要是根据作者经常犯的错来设计的。作者经常会因为粗心大意漏写东西，比如漏掉一些介词，或者 the、a、and 之类的词。所以这里加了一个功能（具体看下图）：类似于你输入的时候觉得自己写得一点问题都没有，但实际上漏了不少重要的东西，它能帮你直接比对出来。
+
+<img width="280" height="693" alt="pte-we-typo" src="https://github.com/user-attachments/assets/c140396b-9efe-45c1-b611-62ea31774fef" />
+
+另外，本着方便使用、减少重复劳动的原则：
+
+（1）当你把自己的例文粘贴上去后，系统是支持保存的，不用每次练习都重新粘贴一遍例文
+
+（2）题库一共 13 道题，每道题都是分开且支持单独保存的，避免重复劳动
+
+（3）自己放上去的例文随时可以修改，点“编辑例文” - 直接把新例文粘过去保存，就可以开始练习了 （在 deployment.md 这个文件里面，确实写了可以通过整体导入导出来处理这些题目的 JSON 文件。但是作者自己实际使用下来，觉得还是在页面上直接改更方便一点，不至于再去折腾 JSON 了。你就在页面直接改吧，多方便、多直接啊！大家都是来备考的，就别给自己在这方面添堵了。）
+
+下图是两种不同的模式：
+
+例文对照模式：单纯显示你自己写的例文，你照着输入即可。这个模式是为了减少类似“呃”、“the”、“and”这种完全没注意、直接漏掉的问题，同时也能帮你查出日常打词时自己都不注意的一些拼写错误；
+
+纯背诵模式。
+
+这两种模式都可以选，自由度非常之高。
+
+<img width="469" height="172" alt="pte-mode" src="https://github.com/user-attachments/assets/5a4b927b-d67b-4a9f-a426-24f5764ee2f6" />
 
 ### 本地运行
 
@@ -39,22 +59,15 @@ python -m http.server 8000
 - `scripts/import_writing_email_docx.py`: 从 Word 文件重新导入题库
 - `DEPLOYMENT.md`: 更完整的本地运行和 GitHub Pages 部署说明
 
-### 重新导入 Word 题库
-
-原始 Word 文件默认不会提交到 Git。若本地存在 `Writing Email_Cleaned.docx`，可以执行：
-
-```powershell
-$py = "C:\Users\yeche\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe"
-& $py ".\scripts\import_writing_email_docx.py" ".\Writing Email_Cleaned.docx" "."
-```
-
 ## English
 
-This is a local web platform for practicing PTE Core Writing Email.
+This is a local web platform for practicing PTE Core Writing Email. The sample answers are not included as fixed exam answers; users can paste, edit, and maintain their own reference answers in the interface.
+
+The platform is designed to help detect careless typing mistakes, including missing prepositions, articles, conjunctions, letters, and spelling differences.
 
 Features include:
 
-- Manage 13 Writing Email prompts
+- Manage 13 separate Writing Email prompts
 - Display prompt images and edit sample answers
 - Practice with the sample answer visible or hidden
 - Compare the typed answer with the reference answer word by word
