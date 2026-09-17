@@ -1,87 +1,55 @@
 # PTE Writing Email Self-Check Platform
 
-## 中文说明
+[Chinese version](README_zh.md)
 
-这个是给 PTE Core 的 Writing Email 准备用的。（注意一下，这里面是不包括那个例文的。界面上的那个例文，它1000%纯AI写的，只是告诉大家自己准备的例文往哪里粘而已。它不是一个用于背诵的东西。）
+This local web platform was built for PTE Core Writing Email practice.
 
-话先说在前面，虽然把这个做出来了，但作者觉得这东西真没有什么大用。因为在考场上一紧张很容易忘句子，而 Writing Email 忘不忘句子其实不重要，反正凑够字数就行；最重要的是保证不打错字、语法正确，至于范文好不好、跟不跟范文走，问题都不大。
+One important note: the example answer shown in the interface is not included here and is absolutely not intended as something to memorize. It was generated entirely by AI and exists only to show where users should paste an answer they prepared themselves.
 
-所以作者单纯是觉得既然做了就先放这儿吧，但再次强调，作者觉得这个平台没什么用。不过也不好说，大家可能可以把它用在别的地方，就这样吧。如果有什么要定制化的东西，可以让自家的 Codex 或者 Claude Code 去改改咯。
+I should also say upfront that, even after building this tool, I do not think it is especially important for exam preparation. Under exam pressure, it is easy to forget a sentence, but forgetting the exact wording of a Writing Email template does not matter very much; you can still produce the required word count. Avoiding typos and using correct grammar matter far more. Whether the answer is beautifully written or closely follows a sample is less critical.
 
-下图是它的一个界面的图。
+I am publishing the platform because I already built it. Perhaps other people can adapt it to a more useful purpose. If you need different behavior, ask your own Codex or Claude Code to customize it.
 
-<img width="1085" height="725" alt="pte-writingemail" src="https://github.com/user-attachments/assets/f6284509-472c-473b-b2d7-10154f1503ec" />
+This is the main interface:
 
-这边整体的设计思路，主要是根据作者经常犯的错来设计的。作者经常会因为粗心大意漏写东西，比如漏掉一些介词，或者 the、a、and 之类的词。所以这里加了一个功能（具体看下图）：类似于你输入的时候觉得自己写得一点问题都没有，但实际上漏了不少重要的东西，它能帮你直接比对出来。
+<img width="1085" height="725" alt="PTE Writing Email practice interface" src="https://github.com/user-attachments/assets/f6284509-472c-473b-b2d7-10154f1503ec" />
 
-<img width="280" height="693" alt="pte-we-typo" src="https://github.com/user-attachments/assets/c140396b-9efe-45c1-b611-62ea31774fef" />
+The design is based on mistakes I make frequently. I often omit small but important words through carelessness—prepositions, or words such as *the*, *a*, and *and*. While typing, the answer can look completely correct even when several words are missing. The comparison view makes those omissions visible immediately.
 
-另外，本着方便使用、减少重复劳动的原则：
+<img width="280" height="693" alt="Word-by-word typo and omission comparison" src="https://github.com/user-attachments/assets/c140396b-9efe-45c1-b611-62ea31774fef" />
 
-（1）当你把自己的例文粘贴上去后，系统是支持保存的，不用每次练习都重新粘贴一遍例文
+To make practice convenient and reduce repeated work:
 
-（2）题库一共 13 道题，每道题都是分开且支持单独保存的，避免重复劳动
+1. After pasting your own sample answer, you can save it locally instead of pasting it again for every practice session.
+2. The question bank contains 13 prompts. Each prompt is kept separate and can be saved independently.
+3. You can revise any sample answer at any time. Select **Edit Sample**, replace the text, save it, and begin practicing immediately. `DEPLOYMENT.md` documents JSON import and export for the entire question bank, but in actual use I find direct editing on the page much more convenient. Exam preparation is already enough work; there is no reason to create extra friction by managing JSON manually.
 
-（3）自己放上去的例文随时可以修改，点“编辑例文” - 直接把新例文粘过去保存，就可以开始练习了 （在 deployment.md 这个文件里面，确实写了可以通过整体导入导出来处理这些题目的 JSON 文件。但是作者自己实际使用下来，觉得还是在页面上直接改更方便一点，不至于再去折腾 JSON 了。你就在页面直接改吧，多方便、多直接啊！大家都是来备考的，就别给自己在这方面添堵了。）
+The platform provides two practice modes:
 
-下图是两种不同的模式：
+- **Reference-visible mode:** Displays your own sample answer while you type it. This helps catch unnoticed omissions such as *the* and *and*, as well as spelling mistakes that may have become habitual.
+- **Memorization mode:** Hides the reference answer for recall practice.
 
-例文对照模式：单纯显示你自己写的例文，你照着输入即可。这个模式是为了减少类似“呃”、“the”、“and”这种完全没注意、直接漏掉的问题，同时也能帮你查出日常打词时自己都不注意的一些拼写错误；
+You can switch freely between the two modes.
 
-纯背诵模式。
+<img width="469" height="172" alt="Reference-visible and memorization mode selector" src="https://github.com/user-attachments/assets/5a4b927b-d67b-4a9f-a426-24f5764ee2f6" />
 
-这两种模式都可以选，自由度非常之高。
+## Features
 
-<img width="469" height="172" alt="pte-mode" src="https://github.com/user-attachments/assets/5a4b927b-d67b-4a9f-a426-24f5764ee2f6" />
+- Manage 13 separate Writing Email prompts.
+- Display prompt images and edit sample answers.
+- Practice with the sample answer visible or hidden.
+- Compare the typed answer with the reference answer word by word.
+- Detect matching words, replacements or spelling errors, missing words, and extra words.
+- Store question-bank edits and practice answers locally in the browser.
+- Import and export the question bank as JSON.
 
-### 本地运行
-
-本项目是无依赖的静态网页，不需要 Node.js、数据库或环境变量。
-
-直接打开 `index.html`，或者双击桌面上的启动脚本即可运行。
-
-如果希望通过本地 HTTP 服务运行，可以在项目目录执行：
-
-```powershell
-python -m http.server 8000
-```
-
-然后访问 `http://localhost:8000`。
-
-### 目录说明
-
-- `index.html`: 页面结构
-- `app.js`: 题库管理、练习交互和逐词对比逻辑
-- `styles.css`: 页面样式
-- `data/email-library.json`: 可编辑的题库文字数据
-- `data/email-library.js`: 浏览器直接打开页面时使用的题库种子数据
-- `data/images/`: 13 张题目图片
-- `scripts/import_writing_email_docx.py`: 从 Word 文件重新导入题库
-- `DEPLOYMENT.md`: 更完整的本地运行和 GitHub Pages 部署说明
-
-## English
-
-This is a local web platform for practicing PTE Core Writing Email. The sample answers are not included as fixed exam answers; users can paste, edit, and maintain their own reference answers in the interface.
-
-The platform is designed to help detect careless typing mistakes, including missing prepositions, articles, conjunctions, letters, and spelling differences.
-
-Features include:
-
-- Manage 13 separate Writing Email prompts
-- Display prompt images and edit sample answers
-- Practice with the sample answer visible or hidden
-- Compare the typed answer with the reference answer word by word
-- Detect matching words, replacements/spelling errors, missing words, and extra words
-- Store question-bank edits and practice answers in the browser locally
-- Import and export the question bank as JSON
-
-### Run locally
+## Run Locally
 
 This is a dependency-free static web app. It does not require Node.js, a database, or environment variables.
 
 Open `index.html` directly, or double-click the desktop launcher.
 
-For a local HTTP server, run this command from the project directory:
+To use a local HTTP server, run this command from the project directory:
 
 ```powershell
 python -m http.server 8000
@@ -89,18 +57,18 @@ python -m http.server 8000
 
 Then open `http://localhost:8000`.
 
-### Project files
+## Project Files
 
 - `index.html`: Page structure
-- `app.js`: Library management, practice interaction, and word-by-word comparison
+- `app.js`: Question-bank management, practice interactions, and word-by-word comparison
 - `styles.css`: Page styling
 - `data/email-library.json`: Editable question-bank text data
-- `data/email-library.js`: Browser-loadable seed data for direct local opening
+- `data/email-library.js`: Browser-loadable seed data used when opening the page directly
 - `data/images/`: The 13 prompt images
 - `scripts/import_writing_email_docx.py`: Re-imports the question bank from a Word document
-- `DEPLOYMENT.md`: Detailed local and GitHub Pages deployment instructions
+- `DEPLOYMENT.md`: Detailed local-running and GitHub Pages deployment instructions
 
-### Re-import the Word question bank
+## Re-import the Word Question Bank
 
 The original Word document is intentionally excluded from Git. If `Writing Email_Cleaned.docx` exists locally, run:
 
